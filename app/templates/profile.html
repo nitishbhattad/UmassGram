@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Your Feed | UmassGram{% endblock %}
+{% block content %}
+<div style="max-width: 600px; margin: auto; padding: 20px;">
+    <h2>👤 {{ user['username'] }}</h2>
+  
+    <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+      <div><strong>{{ followers }}</strong><br>Followers</div>
+      <div><strong>{{ following }}</strong><br>Following</div>
+    </div>
+  
+    <hr>
+  
+    <h3>🧑‍🤝‍🧑 Followers</h3>
+    {% if follower_list %}
+      <ul>
+        {% for f in follower_list %}
+          <li>{{ f['username'] }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No followers yet.</p>
+    {% endif %}
+  
+    <h3>👥 Following</h3>
+    {% if following_list %}
+      <ul>
+        {% for f in following_list %}
+          <li>{{ f['username'] }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Not following anyone.</p>
+    {% endif %}
+  </div>
+  {% endblock %}

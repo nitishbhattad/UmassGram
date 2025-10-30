@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Welcome to UmassGram{% endblock %}
+
+{% block content %}
+<div class="homepage-background">
+  <div class="homepage-overlay">
+    <div class="homepage-content" style="max-width: 600px; margin: auto; padding: 40px; background: rgba(255,255,255,0.8); border-radius: 20px; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.1);">
+      
+      <!-- Logo (smaller and centered) -->
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="UmassGram Logo" class="home-logo" style="max-width: 280px; margin-bottom: 20px;">
+
+      <!-- Title -->
+      <h1 style="font-weight: bold;">Welcome to <span style="color: #007bff;">UmassGram</span> 📸</h1>
+      
+      <!-- Tagline -->
+      <p style="font-size: 16px; margin-bottom: 30px;">
+        Share your moments. Like, save, follow, and connect with other Corsairs.
+      </p>
+
+      <!-- Buttons -->
+      <div style="display: flex; justify-content: center; gap: 20px;">
+        <a href="{{ url_for('main.login') }}" style="padding: 10px 25px; background: #007bff; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">🔐 Login</a>
+        <a href="{{ url_for('main.register') }}" style="padding: 10px 25px; background: #007bff; color: white; border-radius: 8px; text-decoration: none; font-weight: bold;">📝 Register</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

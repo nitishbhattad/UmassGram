@@ -1,0 +1,168 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f8fb;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: #002855;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 12px;
+  }
+  
+  .brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .nav-links a {
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    max-width: 850px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  }
+  
+  .alert.success { color: green; }
+  .alert.danger { color: red; }
+  .alert.info { color: #0056b3; }
+  
+  .homepage-background {
+    background: url('../logo.png') no-repeat center center;
+    background-size: auto;
+    background-color: #eef5fb;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .homepage-overlay {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .home-logo {
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .home-buttons a {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  .home-buttons a:hover {
+    background-color: #0056b3;
+  }
+
+  .feed-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fefefe;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+  }
+  .feed-card:hover {
+    transform: scale(1.01);
+  }
+  .feed-card img {
+    border-radius: 10px;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .feed-user {
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+  }
+  .feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .feed-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .feed-actions form,
+  .feed-actions div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .feed-comment-toggle {
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .feed-follow-btn {
+    background: #eef7ff;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  .feed-follow-btn:hover {
+    background: #d6ebff;
+  }
+  .feed-caption {
+    margin-top: 10px;
+  }
+  .feed-date {
+    font-size: 12px;
+    color: #888;
+  }
+  .comment-section {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+
+  .profile-container {
+    background: #f8faff;
+    padding: 30px;
+    border-radius: 15px;
+  }
+  

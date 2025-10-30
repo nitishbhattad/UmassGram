@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}My Profile | UmassGram{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: auto; padding: 20px;">
+
+  <div style="background: rgba(255,255,255,0.8); border-radius: 15px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0;">👤 MY Profile</h2>
+        <div style="display: flex; gap: 20px; font-size: 18px;">
+          <div>👥 <strong>Followers:</strong> {{ followers }}</div>
+          <div>➡️ <strong>Following:</strong> {{ following }}</div>
+        </div>
+      </div>
+      
+      <hr>
+      
+      <p><strong>Username:</strong> {{ username }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>User ID:</strong> {{ user_id }}</p>
+      
+
+  <hr style="margin: 40px 0;">
+
+  <h3 style="text-align: center;">📸 My Posts</h3>
+
+  {% if posts %}
+    {% for post in posts %}
+      <div style="background: rgba(255,255,255,0.8); border-radius: 10px; padding: 15px; margin-top: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+        {% if post['image_path'] %}
+          <img src="{{ url_for('static', filename='uploads/' ~ post['image_path']) }}" 
+               alt="Post Image"
+               style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px;">
+        {% endif %}
+        <p style="margin-top: 10px;"><strong>Caption:</strong> {{ post['caption'] }}</p>
+        <p style="color: gray; font-size: small;">Posted on {{ post['created_at'] }}</p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p style="text-align: center; margin-top: 30px;">You haven’t posted anything yet!</p>
+  {% endif %}
+
+</div>
+{% endblock %}

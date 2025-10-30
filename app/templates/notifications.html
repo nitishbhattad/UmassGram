@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Your Feed | UmassGram{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notifications - UmassGram</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .notification {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .notification:last-child {
+      border-bottom: none;
+    }
+    .notification span.type {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    .notification time {
+      font-size: 12px;
+      color: gray;
+    }
+    .back {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔔 Notifications</h2>
+    {% if notifications %}
+      {% for note in notifications %}
+        <div class="notification">
+          {% if note.type == 'like' %}
+            <span class="type">❤️ {{ note.sender_name }}</span> liked your post:
+            <em>"{{ note.caption or 'a post' }}"</em>
+          {% elif note.type == 'comment' %}
+            <span class="type">💬 {{ note.sender_name }}</span> commented on your post:
+            <em>"{{ note.caption or 'a post' }}"</em>
+          {% elif note.type == 'follow' %}
+            <span class="type">👥 {{ note.sender_name }}</span> started following you
+          {% endif %}
+          <br><time>{{ note.created_at }}</time>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="text-align: center;">No notifications yet!</p>
+    {% endif %}
+
+    <div class="back">
+      <a href="{{ url_for('main.feed') }}">← Back to Feed</a>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

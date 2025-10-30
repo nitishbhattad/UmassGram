@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}UmassGram{% endblock %}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <style>
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("{{ url_for('static', filename='logo-bg.png') }}") repeat center center;
+  background-size: 200px;
+  background-color: #f6fafd;
+}
+
+
+    .navbar {
+      background-color: #002855;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-left img {
+      height: 40px;
+      vertical-align: middle;
+    }
+    .navbar-left span {
+      font-weight: 600;
+      font-size: 24px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .navbar-right a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar-right a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="UmassGram Logo">
+      <span>UmassGram</span>
+    </div>
+    {% if current_user.is_authenticated %}
+    <div class="navbar-right">
+      <a href="{{ url_for('main.self_profile') }}">👤 My Profile</a>
+      <a href="{{ url_for('main.feed') }}">🏠 Feed</a>
+      <a href="{{ url_for('main.upload') }}">⬆️ Upload</a>
+      <a href="{{ url_for('main.saved_posts') }}">📚 Saved</a>
+      <a href="{{ url_for('main.notifications') }}">🔔 Notifications</a>
+      <a href="{{ url_for('main.logout') }}">📕 Logout</a>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

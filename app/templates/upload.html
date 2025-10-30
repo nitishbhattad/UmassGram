@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Upload Post | UmassGram{% endblock %}
+{% block content %}
+<h2>Upload Post</h2>
+<form method="POST" enctype="multipart/form-data">
+  {{ form.hidden_tag() }}
+  {{ form.image.label }}<br>
+  {{ form.image() }}<br><br>
+  {{ form.caption.label }}<br>
+  {{ form.caption() }}<br><br>
+  <button type="submit">Upload</button>
+</form>
+{% endblock %}
